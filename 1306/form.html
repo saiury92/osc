@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form js</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <style>
+    .info-user label{
+        width: 100px;
+        display: inline-block;
+    }
+    .info-user{padding-bottom: 20px;}
+    .error{color: red;font-size: 14px;}
+    input[type='radio']{margin-right: 30px;}
+    .btn{
+        text-decoration: none;
+        padding: 10px 20px;
+        border: 1px aquamarine solid;
+        background-color: aquamarine;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+    .link{margin-top: 20px;}
+    td{padding: 10px;}
+    #kq{margin-bottom: 30px;}
+</style>
+<div id="kq"></div>
+<form action="" method="post">
+    <div class="info-user">
+        <label>Họ và tên</label>
+        <input type="text" name="name" placeholder="Họ và tên" id="name" value=''/>
+        <span class="error" id="error-name"></span>
+    </div>
+    <div class="info-user">
+        <label>Email</label>
+        <input type="text" name="email" placeholder="email" id="email" value=''/>
+        <span class="error" id="error-email"></span>
+    </div>
+    <div class="info-user">
+        <label>Địa chỉ</label>
+        <input type="text" name="address" placeholder="Địa chỉ" id="address" value=''/>
+        <span class="error" id="error-address"></span>
+    </div>
+    <div class="info-user">
+        <label>Điện thoại</label>
+        <input type="text" name="phone" placeholder="Điện thoại" id="phone" value=''/>
+        <span class="error" id="error-phone"></span>
+    </div>
+    <div class="info-user">
+        <label>Giới tính</label>
+        Nam<input type="radio" name="gender" value="man" id="gender-male" checked/>
+        Nữ<input type="radio" name="gender" value="woman" id="gender-female"/>
+        <span class="error" id="error-gender"></span>
+    </div>
+    
+    <script>
+        var textproducts = '';
+        var stt=0;
+        
+        
+    </script>
+    
+    <div class="products">
+        <div class="title"><h2>Thông tin đơn hàng</h2></div>
+    
+        <div class="info-user">
+            <label>Sản phẩm 1</label>
+            <input type="text" name="products[]" placeholder="Tên sản phẩm" id="products-1" value=''/>
+            <input type="text" name="numbers[]" placeholder="Số lượng" id="numbers-1"value='' />
+            <input type="text" name="prices[]" placeholder="Giá" id="prices-1" value=''/>
+            <span class="error" id="error-products-1"></span>
+        </div>
+        
+        <div class="info-user">
+            <label>Sản phẩm 2</label>
+            <input type="text" name="products[]" placeholder="Tên sản phẩm" id="products-2" value=''/>
+            <input type="text" name="numbers[]" placeholder="Số lượng" id="numbers-2" value=''/>
+            <input type="text" name="prices[]" placeholder="Giá" id="prices-2"value='' />
+            <span class="error" id="error-products-2"></span>
+        </div>
+        
+        <div class="info-user">
+            <label>Sản phẩm 3</label>
+            <input type="text" name="products[]" placeholder="Tên sản phẩm" id="products-3" value=''/>
+            <input type="text" name="numbers[]" placeholder="Số lượng" id="numbers-3" value=''/>
+            <input type="text" name="prices[]" placeholder="Giá" id="prices-3" value=''/>
+            <span class="error" id="error-products-3"></span>
+        </div>
+        
+        <div class="info-user">
+            <label>Sản phẩm 4</label>
+            <input type="text" name="products[]" placeholder="Tên sản phẩm" id="products-4" value='' />
+            <input type="text" name="numbers[]" placeholder="Số lượng" id="numbers-4" value='' />
+            <input type="text" name="prices[]" placeholder="Giá" id="prices-4" value='' />
+            <span class="error" id="error-products-4"></span>
+        </div>
+        
+        <div class="info-user">
+            <label>Sản phẩm 5</label>
+            <input type="text" name="products[]" placeholder="Tên sản phẩm" id="products-5" value='' />
+            <input type="text" name="numbers[]" placeholder="Số lượng" id="numbers-5" value=''/>
+            <input type="text" name="prices[]" placeholder="Giá" id="prices-5" value='' />
+            <span class="error" id="error-products-5"></span>
+        </div>
+        <div class="error" id="error-products"></div>
+    </div>    
+    <div>
+        <input type="button" name="submit" value="Mua hàng" class="btn"
+               onclick="infouser(); return false;"/>
+    </div>
+</form>
+
+<script>
+    function check_text(name,error, error_messages){
+        if(document.getElementById(name).value == ''){
+            document.getElementById(error).innerHTML = error_messages;
+            return false
+        }
+        else{
+            document.getElementById(error).innerHTML = '';
+            return document.getElementById(name).value;
+        }
+    }
+    product = new Array();
+    number = new Array();
+    price = new Array();
+    check_p = false;
+    function check_products(){
+        var exists_p = false;        
+        for(i = 1 ; i < 6 ; i++){
+            if(document.getElementById('products-'+i).value != ''){
+                exists_p = true;
+                product[i] = document.getElementById('products-'+i).value;
+                number[i] = check_text('numbers-'+i, 'error-products-'+i,
+                        'Sản phẩm cần có thông tin giá và số lượng');
+                price[i] = check_text('prices-'+i, 'error-products-'+i,
+                        'Sản phẩm cần có thông tin giá và số lượng');
+                if(number[i] && price[i])
+                    check_p=true;
+                else
+                    check_p=false;
+            }
+            else{
+                product[i]=false;
+            }
+        }
+        if(!exists_p){
+            document.getElementById('error-products').innerHTML = 'Vui lòng nhập ít nhất 1 sản phẩm';
+        }
+        else{
+            document.getElementById('error-products').innerHTML = '';
+        }
+    }
+    
+    function infouser(){
+        document.getElementById('kq').innerHTML = '';
+        name = check_text('name','error-name','Vui lòng nhập tên!');
+        email = check_text('email','error-email','Vui lòng nhập email!');
+        address = check_text('address','error-address','Vui lòng nhập địa chỉ!');
+        phone = check_text('phone','error-phone','Vui lòng nhập số điện thoại!');
+        gender = document.getElementById('gender-male').checked ? 'nam' : 'nu';
+        check_products();
+        
+        if(name && email && address && phone && gender && check_p){
+            kq = 'Name: '+name + '<br/>';
+            kq += 'Email: '+email+'<br/>';
+            kq += "Địa chỉ: "+address+'<br/>';
+            kq += "Điện thoại: "+phone+'<br/>';
+            kq += 'Giới tính: '+gender+'<br/>';
+            kq += "<h3>Sản phẩm đã mua</h3>";
+            kq += "<table cellpadding='0' cellspacing='0' border='1'>";
+            kq += "<thead>";
+            kq += "<td>STT</td><td>Tên sản phẩm</td><td>Số lượng</td>"+
+                    "<td>Giá</td><td>Thành tiền</td>";
+            kq += "</thead>";
+            stt = 1;
+            sum = 0;
+            for(i = 1 ; i < 6 ; i++){
+                if(product[i] && price[i] && number[i]){
+                    kq += "<tr>";
+                    kq += "<td>"+stt+"</td>";
+                    kq += "<td>"+product[i]+"</td>";
+                    kq += "<td>"+number[i]+"</td>";
+                    kq += "<td>"+price[i]+"</td>";
+                    sum_one = number[i]*price[i];
+                    sum += sum_one;
+                    kq += "<td>"+sum_one+"</td>";
+                    kq += "</tr>";
+                    stt++;
+                }
+            }
+            kq += "<tr><td colspan='5'>Tổng tiền: "+sum+"</td></tr>"
+            kq += "</table>";
+            document.getElementById('kq').innerHTML = kq;
+        }
+        
+    }
+    
+</script>
+    </body>
+</html>

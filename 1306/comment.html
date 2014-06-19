@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Comment</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id='container'>
+            <div id='form'>
+                <form action='' method="get">
+                    <textarea name="comment" id='comment' rows='7' class="textarea">
+                        
+                    </textarea>
+                    <br/>
+                    <input type="button" name="submit" value='comment' id='submit' class='btn'/>
+                    <div id='comment-show'>
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    <script src="jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function(){
+            $('#submit').click(function(){
+                $('#comment-show').show();
+                $content_comment = $('#comment').val();
+                $cc = '<div class="one">';
+                $cc += '<span>'+$content_comment+'</span>';
+                $cc += '<span class="delete">x</span>';
+                $cc += '</div>';
+                $('#comment-show').append($cc);
+                $('#comment').val('')
+            });
+            $(document).on('click','.delete',function(){
+                $(this).parent().remove();
+            });
+        });
+    </script>
+    </body>
+</html>

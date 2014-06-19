@@ -1,0 +1,61 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#tab{
+    margin-top: 20px;
+}
+#tab a{
+    text-decoration: none;
+    border: 1px #0033ff solid;
+    padding: 10px 20px;
+    background-color: #0033ff;
+    color: white;
+    margin: 0px 20px;
+}
+.content-tab{
+    display: none;
+    border: 1px black solid;
+    width: 320px;
+    padding: 10px;
+}
+#content{
+    margin-top: 20px;
+    padding: 20px;
+}
+#main, #container{
+    margin: 0px auto;
+    width: 1000px;
+}
+#form{
+    margin-top: 20px;
+}
+.textarea{
+    width: 80%;
+}
+.btn{
+    padding: 10px 20px;
+    border: 1px #0033ff solid;
+    background-color: #0033ff;
+    border-radius: 5px;
+    color: white;
+}
+#comment-show{
+    border: 1px black solid;
+    width: 80%;
+    margin-top: 10px;
+    max-height: 400px;
+    overflow-y: scroll;
+    display: none;
+    padding: 10px;
+}
+.delete{
+    float: right;
+    margin-right: 20px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+.one{
+    min-height: 50px;
+    border: 1px #cccccc solid;
+}

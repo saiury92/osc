@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel='stylesheet' href='style.css' />
+    </head>
+    <body>
+    <div id='main'>
+        <div id="tab">
+            <a href="#" class='ct-1'>Tab 1</a>
+            <a href="#" class='ct-2'>Tab 2</a>
+            <a href='#' class='ct-3'>Tab 3</a>
+        </div>
+        <div id="content">
+            <div id='ct-1' class='content-tab'>
+                noi dung 1
+            </div>
+            <div id='ct-2' class='content-tab'>
+                noi dung 2
+            </div>
+            <div id='ct-3' class='content-tab'>
+                noi dung 3
+            </div>
+        </div>
+    </div>
+        
+    </body>
+    <script src="jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function(){
+            function tab(section){
+                $(section).click(function(){
+                    $('.content-tab').hide();
+                    $tab = $(this).attr('class');
+                    $('#'+$tab).show();
+                });
+            }
+            tab('a');
+        });
+    </script>
+</html>

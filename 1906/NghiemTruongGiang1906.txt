@@ -1,0 +1,35 @@
+﻿1a
+
+2b
+
+3d
+
+4d
+
+5
+Limit và Where trong câu truy vấn:
+* giống nhau: Đều là điều kiện để lấy ra số bản ghi nhất định
+* khác nhau:
+    - limit: điều kiện là lấy ra số bản ghi giới hạn
+    - where: các cột của bản ghi thỏa mãn điều kiện
+
+6d
+
+7
+mysql_fetch_array() và mysql_fetch_assoc()
+* giống nhau: trả về mảng là các bản ghi trong câu truy vấn
+* khác nhau:
+    - mysql_fetch_array(): key của mảng trả về gồm cả số và tên cột trong table của database
+    - mysql_fetch_assoc(): key của mảng trả về chỉ gồm tên cột trong table của database, nên hàm
+        này tối ưu hơn, tránh dư thừa dữ liệu
+
+8
+tính start trong thuật phân trang:
+    start = (pageCurent-1)*limit;
+trong đó:
+    - pageCurent là trang hiện tại,
+    - limit là số bản ghi giới hạn hiện trên một trang
+
+9c
+
+10 d

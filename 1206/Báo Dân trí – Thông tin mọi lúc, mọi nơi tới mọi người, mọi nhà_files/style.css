@@ -1,0 +1,46 @@
+*{margin: 0px;padding: 0px;}
+img{border: none;}
+body{font-family: arial;margin: 0;padding: 0;font-size: 12px;}
+.title-boxright{background: url('images/300x385-EB_01.png') repeat-x;height: 46px;}
+.title-head{margin:0 0 0 6px;float:left;height:46px;width:282px;}
+.title_selected{height: 25px;background: #F3F3F3;border-top: 1px solid #DADADA;border-bottom: 2px solid #E9E9E9;}
+.title_selected ul{margin-top: 5px;}
+.title_selected li{display: inline;margin: 0;}
+.title_selected a{text-decoration: none;color:#282828;}
+.title_selected a li {background: #F3F3F3;padding: 5px 21px 6px;text-align: center;vertical-align: middle;border-left: 1px solid #E9E9E9;}
+.title_selected a.selected-true li{background: #E9E9E9;border: none;}
+.content-boxright{background:#FAFAFA;padding: 17px 13px;border-bottom:solid 1px #E6E6E6;}
+.img-contentright{float:left;}
+.img-contentright img{border-radius: 5px;}
+.text-contentright{margin:2px 0 0 85px;}
+.price-contentright{color:#FC8C00;margin-top: 5px;display: block;}
+.pagging-boxright{background:#F7F7F7;border-bottom: 1px solid #DADADA;padding:4px 0;}
+.pagging-boxright-left{height:25px;width: 10px;background: url('images/300x385-EB_12.png') no-repeat;float: left}
+.pagging-boxright-center{height:25px;width: 33px;position:relative;background: url('images/300x385-EB_14.png') repeat-x;float: left;}
+.pagging-boxright-right{height:25px;width: 10px;background: url('images/300x385-EB_16.png') no-repeat;float: left;}
+.pg-btn-prev{position:absolute;cursor:pointer;bottom:-24px;left:130px;z-index:10;padding:8px;background: url('images/300x385-EB_29.png') no-repeat 0 0;float: left;}
+.pg-btn-next{position:absolute;cursor:pointer;bottom:-24px;right:130px;z-index:10;padding:8px;background: url('images/300x385-EB_28.png') no-repeat 0 0;float:right;}
+.btn_active{background-position: 0 -17px;}
+
+/*160_small*/
+.title_selected a li.small_li {padding: 5px 10px 6px;}
+.textboth-contentright{clear:both;text-align:center;padding-top:5px;}
+.content-boxright.small_boxright{background:#FFF;padding: 9px 13px;}
+#tabs li a.smallx160 {padding-right:14px;padding-left:14px;}
+
+/*253_default*/
+.title_selected a li.default_li {padding: 5px 14px 6px;}
+#tabs li a.default253 {padding-right:15px;padding-left:15px;}
+.default253 .pg-btn-next{right: 107px;}
+.default253 .pg-btn-prev{left: 107px;}
+.default253 .content-boxright{background:#FFF;}
+
+/*tabs*/
+.ui-tabs .ui-tabs-nav { list-style: none;border-top: 1px solid #E9E9E9;border-bottom: 2px solid #E9E9E9; position: relative; background:#F3F3F3; overflow: hidden; z-index: 1000; }
+.ui-tabs .ui-tabs-nav li{ position: relative; float: left; ; background: #F3F3F3; }
+.ui-tabs .ui-tabs-nav li a{ float: left; text-decoration: none; padding: 5px 23px; color: black;border-left: 1px solid #E9E9E9; }
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected{ padding-bottom: 1px; border-bottom-width: 0; background: #E9E9E9;; }
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs.ui-tabs-nav li.ui-state-disabled a,.ui-tabs .ui-tabs-nav li.ui-state-processing a{ cursor: text; }
+.ui-tabs .ui-tabs-nav li a,.ui-tabs.ui-tabs-collapsible.ui-tabs-nav li.ui-tabs-selected a  { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+.ui-tabs .ui-tabs-panel{display: block; border-width: 0; background: none; position: relative;}
+.ui-tabs .ui-tabs-hide{ display: none !important; }

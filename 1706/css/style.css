@@ -1,0 +1,162 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin:0px auto;
+	padding: 0px;
+}
+body{
+	font-family:tahoma;
+	font-size:12px;
+	width:100%;
+	margin:0px auto;
+	background:#CCC;
+}
+#top{
+	width:1226px;
+	margin:0px auto;
+	height:77px;
+}
+#top_l{
+	float:left;
+	width:357px;
+	height:77px;
+	background:url(../images/top_bg_l.jpg) no-repeat left;
+}
+#top_l h1{
+	line-height:50px;
+	margin-left:20px;
+	color:#2276f2;
+}
+#top_l span{
+	font-size:13px;
+	font-weight:bold;
+	color:#FFF;
+	margin-left:20px;
+}
+#top_l a{
+	text-decoration:none;
+	color:#FFF;
+	line-height:30px;
+	font-weight:bold;
+	padding:0px 10px 0px 10px;
+	border-right:1px solid #FFF;
+}
+#top_l a:hover,#top_r a:hover{
+	color:#F00;
+}
+#top_c{
+	float:left;
+	width:451px;
+	height:77px;
+	background:url(../images/top_bg_c.jpg) repeat-x left;
+}
+#top_r{
+	float:left;
+	width:418px;
+	height:77px;
+	text-align:right;
+	background:url(../images/top_bg_r.jpg) no-repeat left;
+}
+#top_r a{
+	text-decoration:none;
+	color:#2276f2;
+	line-height:130px;
+	padding:0px 10px 0px 10px;
+	font-weight:bold;
+}
+img{
+	border:none;
+}
+#main{
+	clear:left;
+	width:1226px;
+	min-height:576px;
+	margin-top:2px;
+	background:url(../images/bg_admin.png) repeat-y;
+}
+#main_l{
+	float:left;
+	width:205px;
+}
+.cate{
+	float:left;
+	width:194px;
+	margin:0px auto;
+	padding:0px 5px 0px 5px;
+}
+.category{
+	float:left;
+	width:194px;
+	height:100%;
+	margin-top:10px;
+	background:url(../images/nav_bg.jpg) repeat;
+}
+.category h1{
+	display:block;
+	font-size:17px;
+	color:#2276f2;
+	background:url(../images/menu_bg.jpg) repeat-y;
+	height:32px;
+	line-height:32px;
+	text-align:center;
+}
+.category ul{
+	margin:0px;
+	padding:0px;
+	list-style:none;
+}
+.category a{
+	text-decoration:none;
+	display:block;
+	color:#2276f2;
+	height:28px;
+	line-height:28px;
+	border-bottom:1px solid #FFF;
+	padding:0px 10px 0px 28px;
+	font-weight:bold;
+	background:url(../images/icon.png) no-repeat 10px 9px;
+}
+.category a:hover{
+	text-decoration:underline;
+}
+#author{
+	color:#FFF;
+	text-align:center;
+}
+#main_r{
+	float:left;
+	width:1021px;
+}
+#main_r h1{
+	padding:10px 0px 30px 20px;
+	font-size:18px;
+}
+#control{
+	padding-left:835px;
+}
+#control a{
+	text-decoration:none;
+	color:black;
+	font-size:14px;
+	font-weight:bold;
+	padding:0px 0px 5px 10px;
+}
+#control a:hover{
+	color:#CCC;
+}
+#list{
+	margin-top:5px;
+	margin-left:10px;
+	padding:0px;
+	width:950px;
+	text-align:center;
+	border-color:#999;
+}
+#list tr{
+	height:32px;
+}
+.header{
+	height:32px;
+	background:#CCC;
+}
+

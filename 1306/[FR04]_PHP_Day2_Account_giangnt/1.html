@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bai 1</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div id='container'>
+            <div class="button">
+                <button class="btn" id='add'>add new</button>
+                <button class='btn' id='count'>Count</button>
+            </div>
+            <div class='products'>
+                <div class='one'>
+                    Name product <span class='stt'>1</span> <input name='product[]' value="" class='product-1'/>
+                    Number <input name='number[]' value='' class='number-1'/>
+                    Price <input name='price[]' value='' class='price-1'/>
+                    <span class='error-1 error'></span>
+                </div>
+            </div>
+            <div class='error error-products'></div>
+            <div id='result'></div>
+        </div>
+        
+        <script src="jquery-1.11.0.min.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function(){
+                /* get data html new product*/
+                function write_new(stt){
+                    one = '<div class="one">';
+                    one += 'Name product <span class="stt">'+stt+'</span> ';
+                        one += '<input name="product[]" value="" class="product-'+stt+'"/>';
+                    one += ' Number <input name="number[]" value="" class="number-'+stt+'"/>';
+                    one += ' Price <input name="price[]" value="" class="price-'+stt+'"/>';
+                    one += '<span><a href="#" class="delete">delete</a></span>';
+                    one += '<span class="error error-'+stt+'"></span>'
+                    one += '</div>';
+                    return one;
+                }
+                product = new Array();
+                number = new Array();
+                price = new Array();
+                error_one = false;
+                function validate(){
+                    $('.error').html('');
+                    stt = $('.one').last().children('span.stt').text();
+                    
+                    exists_p = false;
+                    
+                    for(i = 1 ; i <= stt ; i++){
+                        product[i] = $('.product-'+i).val();
+                        number[i] = $('.number-'+i).val();
+                        price[i] = $('.price-'+i).val();
+                        if(product[i] != ''){
+                            if(number[i] == '' || price[i] == ''){
+                                $('.error-'+i).html('Sản phẩm phải có số lượng và giá');
+                                error_one = false;
+                            }
+                            else{
+                                error_one = true;
+                            }
+                        }
+                        if(product[i] && number[i] && price[i]){
+                            exists_p=true;
+                        }
+                    }
+                    if(!exists_p){
+                        $('.error-products').html('Phải nhập ít nhất một sản phẩm');
+                    }
+                    return exists_p;
+                }
+                
+                /* action add new products*/
+                $('#add').click(function(){
+                    $('.error').html('');
+                    stt = $('.one').last().children('span.stt').text();
+                    stt++;
+                    $('.products').append(write_new(stt));
+                });
+                /* //end  action add new products*/
+                
+                /* acton delete product */
+                $(document).on('click','.delete',function(){
+                    $('.one').last().remove();
+                });
+                /* //end acton delete product */
+                
+                /* action count products*/
+                $('#count').click(function(){
+                    $('#result').html('');
+                    stt = $('.one').last().children('span.stt').text();
+                    check = validate();
+                    html = '';
+                    if(check && error_one){
+                        html += "<table cellpadding='0' cellspacing='0' border = '1'>";
+                        html += "<thead>";
+                        html += "<td>Stt</td>";
+                        html += "<td>Tên sản phẩm</td>";
+                        html += "<td>Số lượng</td>";
+                        html += "<td>Giá</td>";
+                        html += "<td>Thành tiền</td>";
+                        html += "</thead>";
+                        sum = 0;
+                        stt_p = 1;
+                        for(i = 1 ; i <= stt; i++){
+                            if(product[i] != ''){
+                                html += "<tr>";
+                                html += "<td>"+stt_p+"</td>";
+                                html += "<td>"+product[i]+"</td>";
+                                html += "<td>"+number[i]+"</td>";
+                                html += "<td>"+price[i]+"</td>";
+                                sum_one = (number[i] * price[i]);
+                                sum += sum_one;
+                                html += "<td>"+sum_one+"</td>";
+                                html += '</tr>';
+                                stt_p++;
+                            }
+                        }
+                        html += "<tr><td colspan='5'>Tổng đơn hàng: "+sum+"</td></tr>";
+                        $('#result').html(html);
+                    }
+                });
+                /* //end action count products*/
+            });
+        </script>
+    </body>
+</html>

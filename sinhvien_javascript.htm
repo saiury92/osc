@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html" />
+	<meta name="author" content="KHOIPC" />
+	<title>Untitled 6</title>
+    <style>
+        label{
+            float: left;
+            width: 100px;
+        }
+        input{
+            margin-bottom: 5px;
+        }
+        .error{
+            color:red;    
+        }
+    </style>
+    <script>
+        function getInfo()
+        {
+            var name = email = address = phone = gender = "";
+            if(document.getElementById("txtname").value == "") {
+                document.getElementById("error_name").innerHTML = "Vui long nhap ten";
+            }else{
+                name = document.getElementById("txtname").value;
+                document.getElementById("error_name").innerHTML = "";
+            }
+            //Check email
+            if(document.getElementById("txtemail").value == "") {
+                document.getElementById("error_email").innerHTML = "Vui long nhap email";
+            }else{
+                email = document.getElementById("txtemail").value;
+                document.getElementById("error_email").innerHTML = "";
+            }
+            
+            //Check address
+            if(document.getElementById("txtaddress").value == "") {
+                document.getElementById("error_address").innerHTML = "Vui long nhap dia chi";
+            }else{
+                address = document.getElementById("txtaddress").value;
+                document.getElementById("error_address").innerHTML = "";
+            }
+            
+            //Check phone
+            if(document.getElementById("txtphone").value == "") {
+                document.getElementById("error_phone").innerHTML = "Vui long nhap so dien thoai";
+            }else{
+                phone = document.getElementById("txtphone").value;
+                document.getElementById("error_address").innerHTML = "";
+            }
+            if(name && email && address && phone) {
+                var kq = "";
+                kq+="<p>Ten ban la: "+name +"</p>";
+                kq+="<p>Email cua ban la: "+email +"</p>";
+                kq+="<p>Dia chi ban la: "+address +"</p>";
+                kq+="<p>Dien thoai ban la: "+phone +"</p>";
+                document.getElementById("kq").innerHTML = kq;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="" method="post">
+        <label>Username</label>
+        <input type="text" name="" id="txtname" value="" />
+        <span id="error_name" class="error"></span>
+        <br />
+        <label>Email</label>
+        <input type="text" name="" id="txtemail" value="" />
+        <span id="error_email" class="error"></span>
+        <br />
+        <label>Address</label>
+        <input type="text" name="" id="txtaddress" value="" />
+        <span id="error_address" class="error"></span>
+        <br />
+        <label>Phone</label>
+        <input type="text" name="" id="txtphone" value="" />
+        <span id="error_phone" class="error"></span>
+        <br />
+        <label>Gender</label>
+        Famale <input type="radio" name="gender" id="f" value="1" />
+        Male <input type="radio" name="gender" id="m" value="2" />
+        <br />
+        <label>&nbsp;</label>
+        <input type="submit" value="Get Info" onclick="getInfo();return false;"  />
+    </form>
+    <div id='kq'></div>
+</body>
+</html>

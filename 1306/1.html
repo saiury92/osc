@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>javascript</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            td{padding: 5px;}
+            .odd{color:red;}
+            .even{color:blue;}
+        </style>
+    </head>
+<body>
+    <table cellspacing="0" cellpadding="0" border="1">
+    <script>        
+        max = 10000;
+        before = 1;
+        after = 1;
+        document.write(before + ', ' + after + ', ');
+        while(after<=max){
+            after_tem = after;
+            after += before;
+            if(after>max)
+                break;
+            document.write(after+', ');
+            before=after_tem;
+        }
+        
+       document.write('<br/><br/>');
+       col = 10;
+       row = 10;
+       for(i = 2 ; i <= row ; i++){
+           document.write('<tr>');
+           for(j = 1 ; j <= col ; j++){
+               if(j%2==0)
+                   document.write('<td class="even">');
+               else
+                   document.write('<td class="odd">');
+               document.write(i + ' * ' + j + ' = ' + (i * j) + '</td>');
+           }
+           document.write('</tr>');
+       }
+    </script>
+    </table>
+    
+    <br/><br/>Ham o vuong
+    <script>
+        function ovuong(mauNen, border, width, height){
+            document.write(
+                '<div style="background-color: '+mauNen+
+                        ';border: '+border+
+                        ';width:'+width+'px;'+
+                        'height:'+height+'px;"></div>'
+            )
+        }
+        ovuong('blue','1px solid black',100,300);
+    </script>
+    <br/>
+    
+</body>
+</html>

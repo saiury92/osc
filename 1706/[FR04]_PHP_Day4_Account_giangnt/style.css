@@ -1,0 +1,90 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    margin: 0px auto;
+    width: 1000px;
+}
+a{
+    text-decoration: none;
+    color: #0033ff;
+}
+
+.btn{
+    border: 1px #0033ff solid;
+    background-color: #0033ff;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    border-bottom: 10px #3366ff solid;
+    cursor: pointer;
+}
+.btn:hover{ background-color: #3366ff}
+label{
+    float: left;
+    width: 100px;
+}
+.label-sub{
+
+}
+.form-gr{
+    margin-bottom: 20px;
+}
+.error,.require{
+    color: red;
+}
+td{ 
+    text-align: center;
+    padding: 5px 10px;
+    border: 1px solid black;
+}
+thead{
+    background-color: #bebebe;
+}
+table{
+    border: 1px solid black;
+}
+#header{
+    background-color: black;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+}
+.menu a{
+    padding: 0px 20px;
+    margin: 0px 5px;
+    color: white;
+}
+.menu a:hover{
+    background-color: #ddd007;
+}
+.product{
+    background-color: #dedede;
+    border: 1px solid #dedede;
+    width: 250px;
+    height: 150px;
+    margin: 10px;
+    display: inline-block;
+    padding: 10px;
+}
+.list-cart{
+    background-color: #efefef;
+    border: 1px solid #efefef;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 10px;
+}
+.delete{
+    text-align: right;
+    right: 200px;
+    margin-top: -40px;
+    position: absolute;
+}
+.buy{
+    text-align: center;
+    margin-top: 40px;
+    font-size: 20px;
+}
+.buy a:hover{
+    background-color: yellow;
+}

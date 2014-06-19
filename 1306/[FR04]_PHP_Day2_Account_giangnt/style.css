@@ -1,0 +1,42 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.btn{
+    padding: 10px 20px;
+    border: 1px #0033ff solid;
+    background-color: #0033ff;
+    border-radius: 5px;
+    color: white;
+}
+.one{
+    min-height: 50px;
+}
+#container{
+    width: 1000px;
+    margin: 0px auto;
+}
+.number{
+    width: 100px;
+}
+.price{
+    width: 40px;
+}
+.delete{
+    color: #3333ff;
+    text-decoration: none;
+    margin-left: 20px;
+}
+.products{
+    margin-top: 10px;
+}
+.one{
+    padding: 5px 10px;
+}
+.error{
+    color: red;
+}
+td{
+    padding: 5px;
+    text-align: center;
+}
