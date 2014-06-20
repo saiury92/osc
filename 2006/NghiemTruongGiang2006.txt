@@ -1,0 +1,32 @@
+﻿1
+Công thức hàm ajax trong jquery:
+$.ajax({
+    url: 'url',
+    type: 'type',
+    data: 'data',
+    async: 'async',
+    success: function(datareturn){
+        //code action when ajax success
+    }
+});
+Trong đó:
+* url: nơi truyền dữ liệu tới để xử lý
+* type: phương thức truyền đi, post hoặc get
+* data: dữ liệu được truyền đi
+* async: bất đồng bộ hay không, true hoặc false, mặc định là false
+* success: callback xử lý khi ajax thành công, datareturn dữ liệu được hiển thị 
+    bởi nơi xử lý trên server
+
+2
+* Bất đồng bộ là khi 1 thành phần trang load lại, các thành phần khác không thay 
+đổi
+* Đồng bộ là khi 1 thành phần trang load lại, tất cả thành phần khác cũng load 
+lại.
+
+3
+Có, vì khi gửi dữ liệu lên server bởi ajax, thì phương thức gửi đi là post hoặc 
+get,mà $_REQUEST lấy được cả dữ liệu ở phương thức post và get.
+
+5
+Kết quả nhận được hiện ra popup rỗng, vì 'kq' là dữ liệu được hiển thị trên 
+server xử lý, mà server return thì sẽ không có dữ liệu hiển thị.
