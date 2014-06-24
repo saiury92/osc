@@ -1,0 +1,16 @@
+<h1>List User</h1>
+<?php
+var_dump($listUser);
+    echo "<table border='1' width='500'>";
+    if(isset($listUser) && $listUser != null ) {
+        foreach($listUser as $list) {
+            echo "<tr>";
+            echo "<td>".$list['name']."</td>";
+            echo "<td>".$list['email']."</td>";
+            echo "<td>".$list['address']."</td>";
+            echo "<td>".$list['phone']."</td>";
+            echo "<td><a href='index.php?module=admin&controller=user&action=deleteuser&id=".$list['id']."'>Delete</a></td>";
+            echo "</tr>";
+        }
+    }
+    echo "</table>";

@@ -1,0 +1,59 @@
+﻿1
+Để truy cập đến thuộc tính và phương thức trong lớp ta dùng:
+    - $this->name hoặc $this->name() : name là tên phương thức và thuộc tính
+    - Nếu phương thức và thuộc tính được khai báo với từ khóa static, const
+            thì ta dùng: self::$name hoặc self::name() (phương thức không có const)
+* Ví dụ
+class Person{
+    private $name;
+    static $email;
+    const $gender;
+    
+    static function displayName(){
+        echo 'Tên là: '.$this->name;
+    }
+    public function info(){
+        self::displayName();
+        echo '<br/>Email: '.self::$email;
+        echo '<br/>Giới tính: '.self::$gender;
+    }
+}
+
+2
+- Thuộc tính là biến trong class được khai báo thêm với 3 từ khóa: private, protected, public
+- Phương thức là function thực hiện 1 action nào đấy trong class
+* ví dụ:
+class Person{
+    private $name;
+    public function getName(){
+        return $this->name;
+    }
+}
+Trong đó: $name là thuộc tính
+            function getName(): là phương thức
+
+3
+Có 3 cớ chế trong OOP:
+- private: chỉ trong lớp mới có thể truy xuất được
+- protected: Trong lớp và các lớp kế thừa có thể truy xuất
+- public: Trong lớp và ngoài lớp có thể truy xuất
+
+4
+- Kế thừa là sử dụng lại phương thức và thuộc tính của lớp cha, ngoại trừ một số phương thức
+và thuộc tính được bảo vệ.
+- Kế thừa chỉ diễn ra theo 1 chiều từ lớp con kế thừa lớp cha
+- Một lớp chỉ kế thừa từ 1 lớp khác
+
+5
+Cơ chế hoạt động của:
+- __construct(): Tự động gọi đầu tiên khi khởi tạo một đối tượng
+- __destruct(): Tự động gọi cuối cùng trong một kịch bản PHP mà có class chứa
+    hàm này
+
+6
+Chức năng final: Chống kế thừa và ghi đè
+- Khai báo từ khóa final trước class: chống kế thừa class
+- Khai báo từ khóa final trước thuộc tính và phương thức: chống ghi đè
+
+7
+Cơ chế của __autoload(): trả lại tên của class, tự động gọi khi khởi tạo 1 đối tượng

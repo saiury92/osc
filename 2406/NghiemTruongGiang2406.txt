@@ -1,0 +1,7 @@
+MVC là một kiểu thiết kế, chia làm ba phần rõ ràng nhưng quan hệ ràng buộc lẫn nhau
+giúp người lập trình dễ dàng quản lý, nâng cấp và bảo trì.
+        - Model(M): truy xuất trực tiếp đến database
+        - View(V): Hiển thị giao diện, tương tác với người dùng, gửi dữ liệu tương
+                tác đến Controller để xử lý
+        - Controller(C): Xử lý dữ liệu từ View, gọi Model nếu cần thiết để xử lý
+                rồi trả lại dữ liệu về View để hiện thị

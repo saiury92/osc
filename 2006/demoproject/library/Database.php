@@ -36,8 +36,8 @@ class Database{
         $this->where = $where;
         return $this;
     }
-    public function order($order,$status='asc'){
-        $this->order = $order .'' . $status;
+    public function order($order,$type='asc'){
+        $this->order = $order .'' . $type;
         return $this;
     }
     public function limit($start=0,$limit=0){
