@@ -1,0 +1,12 @@
+#[a-z]
+#[a-zA-Z]
+#[a-zA-Z0-9]
+#(.*): Chấp nhận tất cả các ký tự
+#
+#
+RewriteEngine On
+#RewriteRule ^hoc-test-can-ban.html$ /osc/2406/rewrite/test.php [L]
+RewriteRule ^([a-zA-Z0-9]+)/$ /osc/2406/mvc/index.php?module=$1 [L]
+RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)$ /osc/2406/mvc/index.php?module=$1&controller=$2 [L]
+RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)$ /osc/2406/mvc/index.php?module=$1&controller=$2&action=$3 [L]
+RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([0-9]+)$ /osc/2406/mvc/index.php?module=$1&controller=$2&action=$3&id=$4 [L]

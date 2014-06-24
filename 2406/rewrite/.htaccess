@@ -1,0 +1,9 @@
+#[a-z]
+#[a-zA-Z]
+#[a-zA-Z0-9]
+#(.*): Chấp nhận tất cả các ký tự
+#
+#
+RewriteEngine On
+#RewriteRule ^hoc-test-can-ban.html$ /osc/2406/rewrite/test.php [L]
+RewriteRule ^chuyen-muc/([0-9]+)$ /osc/2406/rewrite/test.php?cate=$1 [L]

@@ -1,0 +1,26 @@
+<?php
+if(sizeof($product) < 1){
+    echo 'Không có sản phẩm nào';
+}
+else{
+    echo '<ul>';
+    foreach ($product as $value){
+?>
+
+    <li style="margin-left:10px;">
+        <h3>
+            <a href="<?php echo BASE_URL.'/'.  createUrl('frontend', 'product', 'view'). "&id={$value['product_id']}";?>">
+                <?php echo $value['product_name'];?>
+            </a>
+        </h3>
+        <a href="<?php echo BASE_URL.'/'.  createUrl('frontend', 'product', 'view'). "&id={$value['product_id']}";?>">
+            <img src="<?php echo BASE_URL.'/'.FRONTEND_IMAGES; ?>/<?php echo $value['product_images'];?>" class="product" />
+        </a>
+        <p>Đơn giá: <?php echo $value['product_price'];?></p>
+        <a href="<?php echo BASE_URL.'/'.  createUrl('frontend', 'cart', 'addCart'). "&id={$value['product_id']}";?>" class="cart"><img src="<?php echo BASE_URL.'/'.FRONTEND_IMAGES; ?>/giohang.jpg" />Đặt hàng</a>
+    </li>
+    <?php
+    }//end for
+}//end ifelse
+    echo '</ul>';
+?>
