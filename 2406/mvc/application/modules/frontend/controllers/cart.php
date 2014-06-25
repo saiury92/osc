@@ -24,7 +24,7 @@ class cart extends MY_Controller{
         }
         if(!isset($_SESSION['cart'][$id])){
             $_SESSION['cart'][$id]['number'] = 0;
-            $_SESSION['cart'][$id]['price'] = $product['product_price'];
+            $_SESSION['cart'][$id]['product'] = $product;
         }
         $_SESSION['cart'][$id]['number']++;
         header('Location: '. createUrl('frontend', 'product'));
@@ -40,12 +40,46 @@ class cart extends MY_Controller{
         $money = 0; //money total cart
         foreach ($cart as $key => $value){
             $sum += $value['number'];
-            $money += $value['price'] * $sum;
+            $money += $value['product']['product_price'] * $value['number'];
             
         }
         return array('sum'=>$sum,'money'=>$money);
     }
-    public function view(){
-        
+    public function viewCart(){
+        $cart = isset($_SESSION['cart']) && $_SESSION['cart'] != null ? $_SESSION['cart'] : false;
+        $data['cart'] = $cart;
+        $data['totalCart'] = $this->totalCart();
+        $data['template'] = 'cart/viewCart';
+        $data['title'] = 'Xem giỏ hàng';
+        $this->view('layout/layout',$data);
+    }
+    public function updateNumberAjax(){
+        $id = isset($_REQUEST['id']) && $_REQUEST['id'] != '' ? $_REQUEST['id'] : '';
+        $number = isset($_REQUEST['number']) && $_REQUEST['number'] != '' ? $_REQUEST['number'] : '';
+        if(!$id || !$number)
+            return ;
+        $cart = $_SESSION['cart'];
+        if(!isset($cart[$id]))
+            return ;
+        if($number < 0) $number = 0;
+        $cartUpdate = $cart[$id];
+        $cartUpdate['number'] = $number;
+        $priceUpdate = $number * $cartUpdate['product']['product_price'];
+        $_SESSION['cart'][$id] = $cartUpdate;
+        echo $priceUpdate;
+    }
+    public function deleteCartAjax(){
+        $id = isset($_REQUEST['id']) && $_REQUEST['id'] != '' ? $_REQUEST['id'] : '';
+        if(!$id){
+            echo 'false';
+            return;
+        }
+        $cart = $_SESSION['cart'];
+        if(!isset($cart[$id])){
+            echo 'false';
+            return;
+        }
+        unset($_SESSION['cart'][$id]);
+        echo 'true';
     }
 }

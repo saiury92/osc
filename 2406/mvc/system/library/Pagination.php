@@ -12,7 +12,7 @@ class Pagination{
         $this->totalPage = 0;
         $this->pageSiblingNumber = $pageSiblingNumber;
     }
-    public function cal($start){
+    public function exec($start){
         $db = new Database();
         $db = $this->DBAll;
         $result = $db->query();

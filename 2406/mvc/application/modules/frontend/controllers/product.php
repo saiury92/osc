@@ -7,14 +7,26 @@
  */
 class product extends MY_Controller{
     public function index(){
+        $this->library('Pagination');
         $this->model('productModel');
         $productModel = new productModel;
-        $data['product'] = $productModel->getAll();
-        $data['template'] = 'product/index';
-        $data['title'] = 'Home';
+        
+        $page = isset($_GET['page']) && $_GET['page'] != '' ? $_GET['page'] : 1;
+        $limit = 3;
+        $pageSiblingNumber = 2; //so luong trang xung quanh trang hien tai
+        $pagination = new Pagination($productModel->getThis(),$limit,$pageSiblingNumber);
+        
+        $start = ($page-1)*$pagination->getLimit(); //start trong limit $start, $limit
+        $data['product'] = $pagination->exec($start);
+        
+        $data['page'] = $page;
+        $data['pagination'] = $pagination;
+        
         require_once 'cart.php';
         $cart = new cart;
         $data['totalCart'] = $cart->totalCart();
+        $data['template'] = 'product/index';
+        $data['title'] = 'Home';
         $this->view('layout/layout',$data);
     }
 }

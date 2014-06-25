@@ -21,6 +21,8 @@ else{
     </li>
     <?php
     }//end for
-}//end ifelse
     echo '</ul>';
+    echo $pagination->print_pagination($page,  createUrl('frontend', 'product','index').'&');
+}//end ifelse
+    
 ?>

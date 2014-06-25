@@ -1,0 +1,83 @@
+<div id="ajax-load">
+    <img src="<?php echo BASE_URL.'/'.FRONTEND_IMAGES;?>/ajaxload.gif" />
+</div>
+<?php
+if(!$cart){
+    echo 'Không có sản phẩm trong giỏ hàng';
+}
+else{
+    //var_dump($cart);
+    echo '<form action="" method="POST">';
+    foreach ($cart as $key => $value){
+?>
+<div class="view-cart-product">
+    <div class="cart-pro-img">
+        <img src="<?php echo BASE_URL.'/'.FRONTEND_IMAGES.'/'.$value['product']['product_images'];?>" />
+    </div>
+    <div class="cart-info-text">
+        <div class="cart-pro-name">
+            <b>Tên:</b> <?php echo $value['product']['product_name'];?>
+        </div>
+        <div class="cart-pro-price">
+            <b>Giá:</b> <?php echo $value['product']['product_price'];?>
+        </div>
+        <div class="cart-pro-numer">
+            <b>Số lượng: </b>
+            <input type="number" name="soluong" value="<?php echo $value['number'];?>" data-idsession="<?php echo $key;?>"/>
+        </div>
+        <div class="cart-pro-update" title="cập nhật số lượng">
+            <img src="<?php echo BASE_URL.'/'.FRONTEND_IMAGES?>/update.png" />
+        </div>
+        <div class="cart-pro-price-total">
+            <b>Thành tiền: </b><span class="total-money"><?php echo ($value['number'] * $value['product']['product_price']);?></span>
+        </div>
+        <div class="cart-pro-brand">
+            <b>Hãng: </b><?php echo $value['product']['product_brand'];?>
+        </div>
+    </div>
+    <div class="cart-pro-delete" data-idsession="<?php echo $key;?>">
+        <a href="#<?php ?>"><img src="<?php echo BASE_URL.'/'.FRONTEND_IMAGES;?>/delete.png" /></a>
+    </div>
+</div>
+<?php 
+    } //het foreach
+    echo '</form>';
+}//het if else
+    ?>
+<script src="<?php echo BASE_URL.'/'.FRONTEND_JS;?>/jquery-1.11.0.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('.cart-pro-update').click(function(){
+        $('#ajax-load').show();
+        $input = $(this).siblings('.cart-pro-numer').children('input');
+        $idsseesion = $input.data('idsession');
+        $numberupdate = $input.val();
+        $totalMoney = $(this).siblings('.cart-pro-price-total').children('.total-money');
+        $.ajax({
+            url: '<?php echo createUrl('frontend', 'cart', 'updateNumberAjax').'&';?>',
+            type: 'get',
+            data: 'id='+$idsseesion+'&number='+$numberupdate,
+            success: function(data){
+                $totalMoney.html(data);
+                $('#ajax-load').hide();
+            }
+        });
+    });
+    $('.cart-pro-delete').click(function(){
+        $('#ajax-load').show();
+        $idsseesion = $(this).data('idsession');
+        $this = $(this);
+        $.ajax({
+            url: '<?php echo createUrl('frontend', 'cart', 'deleteCartAjax').'&';?>',
+            type: 'get',
+            data: 'id='+$idsseesion,
+            success: function(data){
+                if(data != 'false'){
+                    $this.parent().remove();
+                    $('#ajax-load').hide();
+                }
+            }
+        });
+    });
+});
+</script>

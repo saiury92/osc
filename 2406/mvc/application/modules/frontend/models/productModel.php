@@ -22,4 +22,11 @@ class productModel extends MY_Model{
         else
             return false;
     }
+    /**
+     * 
+     * @return Model voi dieu kien phan trang
+     */
+    public function getThis(){
+        return $this;
+    }
 }

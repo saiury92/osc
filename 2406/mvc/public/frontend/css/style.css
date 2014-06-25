@@ -4,6 +4,10 @@
 	margin:0px;
 	padding: 0px;
 }
+a{
+    text-decoration: none;
+    color: #0033ff;
+}
 body{
 	font-family:tahoma;
 	font-size:12px;
@@ -126,6 +130,7 @@ body{
 	border:1px solid #fbfbfb;
 	padding:2px;
 	width:120px;
+        height: 125px;
 	margin-bottom:5px;
 }
 #center ul li a.cart{
@@ -181,4 +186,84 @@ body{
 	margin-left:10px;
 	display:block;
 	font-weight:bold;
+}
+
+.page-current{
+    color: black;
+    background-color: #e2e2e2;
+}
+#pagination{
+    margin-top: 20px;
+    text-align: center;
+    clear: left;
+    top: 20px;
+    position: relative;
+    left: 20px;
+}
+#pagination ul{
+    list-style: none;
+}
+#pagination ul li{
+    display: inline-block;
+    border: 1px solid #e2e2e2;
+    margin: 0px 0px;
+}
+#pagination ul li a{
+    padding: 0px 15px;
+    
+}
+#pagination ul li:hover{
+    background-color: #e2e2e2;
+}
+.view-cart-product{
+    border: 1px solid #f3f3f3;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 5px;
+    position: relative;
+}
+.cart-pro-img{
+    width: 130px;
+    height: auto;
+    display: inline-block;
+}
+.cart-pro-img img{
+    width: 100%;
+    height: 100%;
+}
+.cart-info-text{
+    display: inline-block;
+    top: 10px;
+    position: absolute;
+    left: 155px;
+}
+.cart-info-text div{
+    margin-bottom: 10px;
+}
+.cart-pro-delete{
+    text-align: right;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+}
+.cart-pro-numer input{
+    width: 50px;
+}
+.cart-pro-numer div a img{
+    width: 32px;height: 32px;
+}
+.cart-pro-update{
+    display: inline-block;
+    position: absolute;
+    margin-left: 140px;
+    margin-top: -35px;
+    cursor: pointer;
+}
+#ajax-load{
+    position: fixed;
+    top: 50px;
+    margin-left: 200px;
+    z-index: 1;
+    display: none;
 }

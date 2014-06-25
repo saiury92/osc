@@ -1,0 +1,30 @@
+<?php
+if(sizeof($product) < 1){
+    echo 'Không có sản phẩm nào';
+}
+else{
+    echo '<ul>';
+    foreach ($product as $value){
+?>
+
+    <li style="margin-left:10px;">
+        <h3>
+            <a href="#">
+                <?php echo $value['product_name'];?>
+            </a>
+        </h3>
+        <a href="#">
+            <img src="<?php echo BASE_URL.'/'.FRONTEND_IMAGES; ?>/<?php echo $value['product_images'];?>" class="product" />
+        </a>
+        <p>Đơn giá: <?php echo $value['product_price'];?></p>
+        <a href="#" class="cart"><img src="<?php echo BASE_URL.'/'.FRONTEND_IMAGES; ?>/giohang.jpg" />Đặt hàng</a>
+    </li>
+    <?php
+    }//end for
+    echo '</ul>';
+    
+        echo $pagination->print_pagination($page,  createUrl('frontend', 'product','index').'&');
+    
+}//end ifelse
+    
+?>

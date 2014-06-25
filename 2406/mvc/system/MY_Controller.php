@@ -7,8 +7,10 @@
  */
 class MY_Controller
 {
+    
     public function __construct()
     {
+        
     }
     /**
      * function view
