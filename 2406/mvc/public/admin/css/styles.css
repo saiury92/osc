@@ -778,3 +778,9 @@ a.dashboard-module span {
 .error{
     color: red;
 }
+.user-action * {
+    margin-right: 10px;
+}
+.messsages-action{
+    color: #0007ff;
+}

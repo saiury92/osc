@@ -13,7 +13,7 @@ final class Validation{
             return true;
         return false;
     }
-    public function setParamPost($message_errors = array()){
+    public function getPost($message_errors = array()){
         foreach ($this->name as $key=>$value){
             if(isset($_POST[$key]) && $_POST[$key]){
                 $this->name[$key] = $_POST[$key];
@@ -81,5 +81,25 @@ final class Validation{
             return false;
         }
         return true;
+    }
+    public function isNumber($number){
+        if(is_numeric($number))
+            return true;
+        return false;
+    }
+    public function checkLengthMin($str,$min){
+        if(strlen($str) >= $min)
+            return true;
+        return false;
+    }
+    public function checkLengthMax($str,$max){
+        if(strlen($str) <= $max)
+            return true;
+        return false;
+    }
+    public function checkLength($str,$min,$max){
+        if($this->checkLengthMin($str, $min) && $this->checkLengthMax($str, $max))
+                return true;
+        return false;
     }
 }

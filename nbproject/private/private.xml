@@ -2,6 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/E:/Program%20Files/wamp/www/osc/2406/mvc/public/frontend/css/style.css</file>
+            <file>file:/E:/Program%20Files/wamp/www/osc/2406/mvc/application/modules/frontend/controllers/cart.php</file>
+            <file>file:/E:/Program%20Files/wamp/www/osc/2406/mvc/application/modules/frontend/views/cart/viewCart.phtml</file>
+            <file>file:/E:/Program%20Files/wamp/www/osc/2406/mvc/application/modules/frontend/views/product/index.phtml</file>
+        </group>
     </open-files>
 </project-private>

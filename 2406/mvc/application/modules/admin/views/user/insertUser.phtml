@@ -12,8 +12,8 @@
                     <label>Level</label>
                     <select class="input-short" name="level">
                         <option value="">--Chọn quyền--</option>
-                        <option value="1"<?php echo $validation->setBox('level','1','selected') ?>>Member</option>
-                        <option value="2"<?php echo $validation->setBox('level','2','selected') ?>>Administrator</option>
+                        <option value="2"<?php echo $validation->setBox('level','2','selected') ?>>Member</option>
+                        <option value="1"<?php echo $validation->setBox('level','1','selected') ?>>Administrator</option>
                     </select>
                     <span class="error">
                     <?php
@@ -44,7 +44,7 @@
                             
                 <p>
                     <label>Re-password</label>
-                    <input type="password" class="input-short" name="re-password"/>
+                    <input type="password" class="input-short" name="repassword"/>
                     <span class="error">
                     <?php
                         echo $validation->getError('repassword');
@@ -78,6 +78,17 @@
                     <span class="error">
                     <?php
                         echo $validation->getError('phone');
+                    ?>
+                    </span>
+                </p>
+                
+                <p>
+                    <label>Gender</label>
+                    Nam &nbsp;<input type="radio" name="gender" value="1" <?php echo $validation->setBox('gender','1'); ?>/>
+                    Nữ &nbsp;<input type="radio" name="gender" value="2" <?php echo $validation->setBox('gender','2'); ?>/>
+                    <span class="error">
+                    <?php
+                        echo $validation->getError('gender');
                     ?>
                     </span>
                 </p>      

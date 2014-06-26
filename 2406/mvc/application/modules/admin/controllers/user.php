@@ -17,64 +17,6 @@ class user extends MY_Controller
     public function __construct() {
         parent::__construct();
     }
-    public function setLevel($value = "")
-    {
-        $this->_level = $value;        
-    }
-    
-    public function getLevel()
-    {
-        return $this->_level;
-    }
-    
-    public function setName($value = "")
-    {
-        $this->_name = $value;
-    }
-    public function getName()
-    {
-        return $this->_name;
-    }
-    
-    public function setPassword($value = "")
-    {
-        $this->_password = $value;
-    }
-    
-    public function getPassword()
-    {
-        return $this->_password;
-    }
-    
-    public function setEmail($value = "")
-    {
-        $this->_email = $value;
-    }
-    
-    public function getEmail()
-    {
-        return $this->_email;
-    }
-    
-    public function setAddress($value = "")
-    {
-        $this->_address = $value;
-    }
-    
-    public function getAddress()
-    {
-        return $this->_address;
-    }
-    
-    public function setPhone($value = ""){
-        $this->_phone = $value;
-    }
-    
-    public function getPhone()
-    {
-        return $this->_phone;
-    }
-    
     public function index()
     {
         $usermodel = $this->model("userModel");
@@ -87,8 +29,7 @@ class user extends MY_Controller
     public function insertUser()
     {
         $this->library('Validation');
-        //$params = request::getParams();
-        $array_param = array('name','email','address','phone','level','password','repassword');
+        $array_param = array('name','email','address','phone','gender','level','password','repassword');
         $validation = new Validation($array_param);
         $messages_error = array(
             'name'=>'Vui lòng nhập username',
@@ -98,15 +39,26 @@ class user extends MY_Controller
             'level'=>'Vui lòng nhập level',
             'password'=>'Vui lòng nhập password',
             'repassword'=>'Vui lòng nhập lại passwrod',
+            'gender'=>'Vui lòng chọn giới tính',
         );
+        var_dump($_SESSION);
         if($validation->isPost()){
-            $validation->setParamPost($messages_error);
-            /*$dataUser = $this->setValue($params);
-            if($this->checkData($params)){
-                $this->loadModel("user_model");
-                $this->_model->insert_update_user($dataUser);
-                redirect("admin","user","index");
-            }*/
+            $validation->getPost($messages_error);
+            if($validation->validate()){
+                $data = $validation->getParamArray();
+                
+                unset($data['repassword']);
+                $userMode = $this->model('userModel');
+                $count = $userMode->insertUser($data);
+                echo $userMode->getQuery();
+                if($count>0){
+                    $_SESSION['messages'] = 'Thêm thành công';
+                    header('Location: '.createUrl('admin', 'user','insertUser'));
+                }
+                else{
+                    $_SESSION['messages'] = 'Lỗi hệ thống';
+                }
+            }
         }
         $data['title'] = 'Thêm user';
         $data['template'] = "user/insertUser";

@@ -2,8 +2,8 @@
         <div id="right">
         	<div class="category">
             	<h1>Danh Giỏ hàng của bạn</h1>
-               	<p><a href="#">Tổng số sản phẩm: <?php if(isset($totalCart['sum'])) echo $totalCart['sum']; else echo '0'; ?></a></p>
-                <p><a href="#">Tổng giá tiền: <?php if(isset($totalCart['money'])) echo $totalCart['money']; else echo '0'; ?></a></p>
+               	<p><a href="#">Tổng số sản phẩm: <?php if(isset($_SESSION['totalCart']['number'])) echo $_SESSION['totalCart']['number']; else echo '0'; ?></a></p>
+                <p><a href="#">Tổng giá tiền: <?php if(isset($_SESSION['totalCart']['price'])) echo $_SESSION['totalCart']['price']; else echo '0'; ?></a></p>
                 <p><a href="<?php echo createUrl('frontend', 'cart', 'viewCart'); ?>">Xem giỏ hàng</a></p>
 	            </ul>
             </div>

@@ -27,6 +27,16 @@ class cart extends MY_Controller{
             $_SESSION['cart'][$id]['product'] = $product;
         }
         $_SESSION['cart'][$id]['number']++;
+        $totalCart = isset($_SESSION['totalCart']) && $_SESSION['totalCart'] != '' ? $_SESSION['totalCart'] : array();
+        if(!isset($totalCart['number']) && $totalCart['number'] == null)
+            $totalCart['number'] = 0;
+        
+        if(!isset($totalCart['price']) && $totalCart['price'] == null)
+            $totalCart['price'] = 0;
+        
+        $totalCart['number']++;
+        $totalCart['price'] += $_SESSION['cart'][$id]['product']['product_price'];
+        $_SESSION['totalCart'] = $totalCart;
         header('Location: '. createUrl('frontend', 'product'));
     }
     /**
@@ -43,6 +53,7 @@ class cart extends MY_Controller{
             $money += $value['product']['product_price'] * $value['number'];
             
         }
+        
         return array('sum'=>$sum,'money'=>$money);
     }
     public function viewCart(){

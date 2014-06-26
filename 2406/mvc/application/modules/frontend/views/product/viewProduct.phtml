@@ -1,0 +1,18 @@
+<div class="view-pro-img">
+    <img src="<?php echo BASE_URL.'/'.FRONTEND_IMAGES.'/'.$product['product_images'];?>" />
+</div>
+<table cellspacing="0" cellpadding="0" border="1" width="580">
+    <tr>
+        <td>Tên: <?php echo $product['product_name'];?></td>
+        <td>Giá: <?php echo $product['product_price'];?></td>
+    </tr>
+    <tr>
+        <td colspan="2">Hãng: <?php echo $product['product_brand'];?></td>
+    </tr>
+</table>
+<div class="view-pro-desc">
+    <b><?php echo $product['product_desc'];?></b>
+</div>
+<div class="view-pro-info">
+    <?php echo $product['product_info'];?>
+</div>

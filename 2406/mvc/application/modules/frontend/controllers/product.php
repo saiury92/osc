@@ -22,11 +22,24 @@ class product extends MY_Controller{
         $data['page'] = $page;
         $data['pagination'] = $pagination;
         
-        require_once 'cart.php';
-        $cart = new cart;
-        $data['totalCart'] = $cart->totalCart();
         $data['template'] = 'product/index';
         $data['title'] = 'Home';
+        $this->view('layout/layout',$data);
+    }
+    public function viewProduct(){
+        $id = isset($_GET['id']) && $_GET['id'] ? $_GET['id'] : '';
+        if(!$id){
+            header('Location: '.createUrl('frontend', 'product','index'));
+            exit;
+        }
+        $this->model('productModel');
+        $productModel = new productModel;
+        if(! $product = $productModel->getOne($id)){
+            header('Location: '.createUrl('frontend', 'product','index'));
+            exit;
+        }
+        $data['template'] = 'product/viewProduct';
+        $data['product'] = $product;
         $this->view('layout/layout',$data);
     }
 }

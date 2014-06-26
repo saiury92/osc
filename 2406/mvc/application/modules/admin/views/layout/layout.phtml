@@ -1,5 +1,6 @@
 <?php
-    require_once("application/modules/admin/views/layout/header.phtml");
-    require_once("application/modules/admin/views/".$template.".phtml");
-    require_once("application/modules/admin/views/layout/footer.phtml");
+    require_once("header.phtml");
+    if(isset($template))
+        require_once(__DIR__.'/../'.$template.".phtml");
+    require_once("footer.phtml");
 ?>
