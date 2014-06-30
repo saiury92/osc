@@ -81,9 +81,11 @@ fieldset {
 
 a, 
 a:visited { 
-	color:#0063be; text-decoration: none; 
+	text-decoration: none; 
 	}
-
+a{
+    color: #3333ff;
+}
 a:hover, a:active { 
 	text-decoration: underline; 
 	}
@@ -783,4 +785,70 @@ a.dashboard-module span {
 }
 .messsages-action{
     color: #0007ff;
+}
+.page-current{
+    color: black;
+    background-color: #e2e2e2;
+}
+#pagination{
+    margin-top: 20px;
+    text-align: center;
+}
+#pagination ul{
+    list-style: none;    
+}
+#pagination ul li{
+    display: inline-block;
+    border: 1px solid #e2e2e2;
+}
+#pagination ul li a{
+    padding: 0px 15px;
+}
+#pagination ul li:hover{
+    background-color: #e2e2e2;
+}
+.btn{
+    border: 1px #0033ff solid;
+    background-color: #0033ff;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    border-bottom: 10px #3366ff solid;
+    cursor: pointer;
+}
+.btn:hover{ background-color: #3366ff}
+
+label{
+    float: left;
+    width: 100px;
+}
+.form-gr{
+    margin-bottom: 20px;
+}
+.error,.require{
+    color: red;
+}
+td{ 
+    text-align: center;
+    padding: 5px 10px;
+    border: 1px solid black;
+}
+thead{
+    background-color: #bebebe;
+}
+.cancel{
+    margin-left: 20px;
+    color: white;
+}
+#messsages-action{
+    color: blue;
+    margin: 0px 30px 20px 50px;
+    font-size: 16px;
+}
+#ajax-load{
+    position: fixed;
+    top: 100px;
+    margin-left: 500px;
+    z-index: 1;
+    display: none;
 }

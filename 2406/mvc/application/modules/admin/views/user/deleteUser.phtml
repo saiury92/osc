@@ -1,0 +1,12 @@
+<h3>Xác nhận xóa user</h3>
+<div>
+    name: <?php echo $user['name'];?>
+</div>
+<div>
+    <form action="" method="POST">
+        <div class="form-gr">
+            <input type="submit" name="submit" value="Xóa" class="btn" />
+            <a href="<?php echo createUrl('admin', 'user','index');?>" class="btn cancel">Hủy</a>
+        </div>
+    </form>
+</div>

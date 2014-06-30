@@ -49,5 +49,6 @@ class MY_Controller
     public function library($library)
     {
         require_once "system/library/{$library}.php";
+        return new $library;
     }
 }

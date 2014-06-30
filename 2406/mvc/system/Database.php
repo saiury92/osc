@@ -40,7 +40,7 @@ class Database{
         return $this;
     }
     public function where($where = '1'){
-        $this->_where .= 'and '.$where;
+        $this->_where .= ' and '.$where;
         return $this;
     }
     public function order($order,$type='asc'){
@@ -84,13 +84,14 @@ class Database{
         while($row = mysql_fetch_assoc($result)){
             $data_array[] = $row;
         }
+        $this->setDefault();
         return $data_array;
     }
     public function getQuery(){
         return $this->_query;
     }
     
-    public function update($data,$id){
+    public function update($data){
         $query = '';
         if(is_array($data)){
             foreach ($data as $key => $value){
@@ -101,8 +102,9 @@ class Database{
         else{
             $query = $data;
         }
-        $this->_query = "update $this->_table set $query where id = $id";
+        $this->_query = "update {$this->_table} set {$query} where {$this->_where}";
         mysql_query($this->_query);
+        $this->setDefault();
         return mysql_affected_rows();
     }
     public function insert($data){
@@ -122,9 +124,20 @@ class Database{
             $this->_query = "insert into $this->_table $data";
         }
         mysql_query($this->_query);
+        $this->setDefault();
         return mysql_affected_rows();
     }
     public function delete(){
         $this->_query = "delete from {$this->_table} where {$this->_where}";
+        mysql_query($this->_query);
+        $this->setDefault();
+        return mysql_affected_rows();
+    }
+    private function setDefault(){
+        $this->_select = '*';
+        $this->_where = ' 1 ';
+        $this->_order = '';
+        $this->_limit = null;
+        $this->_join = '';
     }
 }

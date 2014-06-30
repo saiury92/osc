@@ -1,0 +1,95 @@
+<div style="clear:both;"></div>
+<?php 
+//$validation = new Validation;
+?>            
+<!-- Form elements -->    
+<div class="grid_12">
+    <div class="module">
+        <h2><span>Edit User</span></h2>
+        <div class="module-body">
+            <form action="" method="POST">
+                <div class="form-gr">
+                    <label>Level</label>
+                    <select class="input-short" name="level">
+                        <option value="">--Chọn quyền--</option>
+                        <option value="2"<?php echo $validation->setBox('level','2','selected') ?>>Member</option>
+                        <option value="1"<?php echo $validation->setBox('level','1','selected') ?>>Administrator</option>
+                    </select>
+                    <span class="error">
+                    <?php
+                        echo $validation->getError('level');
+                    ?>
+                    </span>
+                </div>
+                
+                <div class="form-gr">
+                    <label>User name</label>
+                    <input type="text" class="input-short" name="username" value='<?php echo $validation->getParam('username');?>'/>
+                    <span class="error">
+                    <?php
+                        echo $validation->getError('username');
+                    ?>
+                    </span>
+                </div>
+                            
+                <div class="form-gr">
+                    <label>Password</label>
+                    <input type="password" class="input-short" name="password"/>
+                    <span class="error">
+                    <?php
+                        echo $validation->getError('password');
+                    ?>
+                    </span>
+                </div>
+                            
+                <div class="form-gr">
+                    <label>Re-password</label>
+                    <input type="password" class="input-short" name="repassword"/>
+                    <span class="error">
+                    <?php
+                        echo $validation->getError('repassword');
+                    ?>
+                    </span>
+                </div>
+                   
+                <div class="form-gr">
+                    <label>Email</label>
+                    <input type="text" class="input-short" name="email" value='<?php echo $validation->getParam('email');?>'/>
+                    <span class="error">
+                    <?php
+                        echo $validation->getError('email');
+                    ?>
+                    </span>
+                </div>
+                
+                <div class="form-gr">
+                    <label>Address</label>
+                    <input type="text" class="input-short" name="address" value='<?php echo $validation->getParam('address');?>'/>
+                    <span class="error">
+                    <?php
+                        echo $validation->getError('address');
+                    ?>
+                    </span>
+                </div>
+                
+                <div class="form-gr">
+                    <label>Phone</label>
+                    <input type="text" class="input-short" name="phone" value='<?php echo $validation->getParam('phone');?>'/>
+                    <span class="error">
+                    <?php
+                        echo $validation->getError('phone');
+                    ?>
+                    </span>
+                </div>
+                   
+                <div class="form-gr">
+                    <input class="submit-green btn" type="submit" value="Submit" name="submit"/> 
+                    <input class="submit-gray btn cancel" type="reset" value="Reset" />
+                </div>
+                
+            </form>
+        </div> <!-- End .module-body -->
+
+    </div>  <!-- End .module -->
+    <div style="clear:both;"></div>
+</div> <!-- End .grid_12 -->

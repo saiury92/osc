@@ -1,0 +1,86 @@
+<div style="clear:both;"></div>
+<?php 
+//$validation = new Validation;
+?>            
+<!-- Form elements -->    
+<div class="grid_12">
+    <div class="module">
+        <h2><span>Insert product</span></h2>
+        <div class="module-body">
+            <form action="" method="POST" enctype="multipart/form-data">
+                <div class="form-gr">
+                    <label>Name</label>
+                    <input type="text" class="input-short" name="pro_name" value='<?php echo $validation->getParam('pro_name');?>'/>
+                    <span class="error">
+                    <?php
+                        echo $validation->getError('pro_name');
+                    ?>
+                    </span>
+                </div>
+                
+                <div class="form-gr">
+                    <label>Images</label>
+                    <input type="file" name="pro_img" />
+                    <span class="error">
+                    <?php
+                        echo $validation->getError('pro_img');
+                    ?>
+                    </span>
+                </div>
+                
+                <div class="form-gr">
+                    <label>Price</label>
+                    <input type="number" class="input-short" name="pro_price" value="<?php echo $validation->getParam('pro_price');?>"/>
+                    <span class="error">
+                    <?php
+                        echo $validation->getError('pro_price');
+                    ?>
+                    </span>
+                </div>
+                
+                <div>
+                    <label>Info</label>
+                    <textarea name="pro_info"><?php echo $validation->getParam('pro_info');?></textarea>
+                    <span class="error">
+                    <?php
+                        echo $validation->getError('pro_info');
+                    ?>
+                    </span>
+                </div>
+                
+                <div class="form-gr">
+                    <label>Order</label>
+                    <input type="number" class="input-short" name="pro_order" value="<?php echo $validation->getParam('pro_order');?>"/>
+                    <span class="error">
+                    <?php
+                        echo $validation->getError('pro_order');
+                    ?>
+                    </span>
+                </div>
+                
+                <div class="form-gr">
+                    <label>Category</label>
+                    <select class="input-short" name="cate_id">
+                        <option value="">--Chọn Category--</option>
+                        <?php foreach($category as $value){?>
+                        <option value="<?php echo $value['cate_id'];?>" <?php echo $validation->setBox('cate_id',$value['cate_id'],'selected') ?>><?php echo $value['cate_name'];?></option>
+                        <?php }?>
+                    </select>
+                    <span class="error">
+                    <?php
+                        echo $validation->getError('cate_id');
+                    ?>
+                    </span>
+                </div>
+                   
+                <div class="form-gr">
+                    <input class="submit-green btn" type="submit" value="Submit" name="submit"/> 
+                    <input class="submit-gray btn cancel" type="reset" value="Reset" />
+                </div>
+                
+            </form>
+        </div> <!-- End .module-body -->
+
+    </div>  <!-- End .module -->
+    <div style="clear:both;"></div>
+</div> <!-- End .grid_12 -->

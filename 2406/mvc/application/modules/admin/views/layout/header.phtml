@@ -165,10 +165,13 @@
                 <div style="clear: both;"></div>
             </div> <!-- End #subnav -->
         </div> <!-- End #header -->
-        <div class="messsages-action">
+        <div id="messsages-action">
             <?php if(isset($_SESSION['messages'])){
                 echo $_SESSION['messages'];
                 unset($_SESSION['messages']);
             }?>
-        </div>        
+        </div>
+        <div id="ajax-load">
+            <img src="<?php echo BASE_URL.'/'.FRONTEND_IMAGES;?>/ajaxload.gif" />
+        </div>
 		<div class="container_12">

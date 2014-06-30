@@ -1,0 +1,7 @@
+<?php
+    require_once("header.phtml");
+    require_once 'left.phtml';
+    if(isset($template))
+        require_once(__DIR__.'/../'.$template.".phtml");
+    require_once("footer.phtml");
+?>

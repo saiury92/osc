@@ -1,0 +1,55 @@
+<div style="clear:both;"></div>
+<?php 
+//$validation = new Validation;
+?>            
+<!-- Form elements -->    
+<div class="grid_12">
+    <div class="module">
+        <h2><span>Edit category</span></h2>
+        <div class="module-body">
+            <form action="" method="POST">
+                <div class="form-gr">
+                    <label>Name</label>
+                    <input type="text" class="input-short" name="cate_name" value='<?php echo $validation->getParam('cate_name');?>'/>
+                    <span class="error">
+                    <?php
+                        echo $validation->getError('cate_name');
+                    ?>
+                    </span>
+                </div>
+                            
+                <div class="form-gr">
+                    <label>Order</label>
+                    <input type="number" class="input-short" name="cate_order" value="<?php echo $validation->getParam('cate_order');?>"/>
+                    <span class="error">
+                    <?php
+                        echo $validation->getError('cate_order');
+                    ?>
+                    </span>
+                </div>
+                
+                <div class="form-gr">
+                    <label>status</label>
+                    <select class="input-short" name="cate_status">
+                        <option value="">--Chọn status--</option>
+                        <option value="1"<?php echo $validation->setBox('cate_status','1','selected') ?>>Open</option>
+                        <option value="2"<?php echo $validation->setBox('cate_status','2','selected') ?>>close</option>
+                    </select>
+                    <span class="error">
+                    <?php
+                        echo $validation->getError('cate_status');
+                    ?>
+                    </span>
+                </div>
+                   
+                <div class="form-gr">
+                    <input class="submit-green btn" type="submit" value="Submit" name="submit"/> 
+                    <input class="submit-gray btn cancel" type="reset" value="Reset" />
+                </div>
+                
+            </form>
+        </div> <!-- End .module-body -->
+
+    </div>  <!-- End .module -->
+    <div style="clear:both;"></div>
+</div> <!-- End .grid_12 -->

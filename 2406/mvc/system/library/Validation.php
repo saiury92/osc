@@ -14,16 +14,26 @@ final class Validation{
         return false;
     }
     public function getPost($message_errors = array()){
-        foreach ($this->name as $key=>$value){
+        foreach ($message_errors as $key => $value){
             if(isset($_POST[$key]) && $_POST[$key]){
                 $this->name[$key] = $_POST[$key];
                 $this->error[$key] = '';
             }
-            else{
+            else{   
                 $this->error[$key] = $message_errors[$key];
                 $this->name[$key] = '';
             }
         }
+        /*foreach ($this->name as $key=>$value){
+            if(isset($_POST[$key]) && $_POST[$key]){
+                $this->name[$key] = $_POST[$key];
+                $this->error[$key] = '';
+            }
+            else{   
+                $this->error[$key] = $message_errors[$key];
+                $this->name[$key] = '';
+            }
+        }*/
     }
     public function setParamArray($arrayData){
         $this->name = $arrayData;
@@ -49,6 +59,9 @@ final class Validation{
     }
     public function getParam($name){
         return $this->name[$name];
+    }
+    public function setError($name,$messages){
+        $this->error[$name] = $messages;
     }
     function setBox($name,$value,$status="checked"){
         $return = "";
@@ -76,30 +89,43 @@ final class Validation{
         }
         return true;
     }
-    public function isEmail($email){
-        if(!preg_match("/^[a-zA-Z0-9_]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+/", $email)){
+    public function isEmail($name){
+        if(!preg_match("/^[a-zA-Z0-9_]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+/", $this->name[$name])){
             return false;
         }
         return true;
     }
-    public function isNumber($number){
-        if(is_numeric($number))
+    public function isNumber($name){
+        if(is_numeric($this->name[$name]))
             return true;
         return false;
     }
-    public function checkLengthMin($str,$min){
-        if(strlen($str) >= $min)
+    public function checkLengthMin($name,$min){
+        if(strlen($this->name[$name]) >= $min)
             return true;
         return false;
     }
-    public function checkLengthMax($str,$max){
-        if(strlen($str) <= $max)
+    public function checkLengthMax($name,$max){
+        if(strlen($this->name[$name]) <= $max)
             return true;
         return false;
     }
-    public function checkLength($str,$min,$max){
-        if($this->checkLengthMin($str, $min) && $this->checkLengthMax($str, $max))
+    public function checkLength($name,$min,$max){
+        if($this->checkLengthMin($name, $min) && $this->checkLengthMax($name, $max))
                 return true;
+        return false;
+    }
+    public function isNull($name){
+        if($this->name[$name] == '' || $this->name[$name] == null)
+            return true;
+        return false;
+    }
+    public function _unset($name){
+        unset($this->name[$name]);
+    }
+    public function equal($name1,$name2){
+        if($this->name[$name1] == $this->name[$name2])
+            return true;
         return false;
     }
 }

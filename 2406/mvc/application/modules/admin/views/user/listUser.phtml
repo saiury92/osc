@@ -51,7 +51,9 @@
                             <td class="user-action">
                                	<input type="checkbox" />
                                 <a href="<?php echo createUrl('admin', 'user','editUser');?>&id=<?php echo $value['user_id'];?>"><img src="<?php echo BASE_URL.'/'. ADMIN_IMAGES;?>/pencil.gif" tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif" width="16" height="16" alt="edit" /></a>
-                                <a href="<?php echo createUrl('admin', 'user','deleteUser');?>&id=<?php echo $value['user_id'];?>"><img src="<?php echo BASE_URL.'/'.ADMIN_IMAGES;?>/icon-delete.png" tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif" width="16" height="16" alt="delete" /></a>
+                                <a href="<?php echo createUrl('admin', 'user','deleteUser');?>&id=<?php echo $value['user_id'];?>" data-id="<?php echo $value['user_id'];?>" class="user-delete" data-stt="<?php echo $stt;?>">
+                                    <img src="<?php echo BASE_URL.'/'.ADMIN_IMAGES;?>/icon-delete.png" tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif" width="16" height="16" alt="delete" />
+                                </a>
                             </td>
                         </tr>     
                     </tbody>
@@ -123,3 +125,30 @@
                         <div style="clear: both;"></div> 
                      </div>
 </div> <!-- End .grid_12 -->
+<script src="<?php echo BASE_URL.'/'.ADMIN_JS?>/jquery-1.11.0.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('.user-delete').click(function(){
+        if(!confirm('Xác nhận xóa stt '+$(this).data('stt'))){
+            return false;
+        }
+        $('#ajax-load').show();
+        $id = $(this).data('id');
+        $this = $(this);
+        $.ajax({
+            url: '<?php echo createUrl('admin', 'user','deleteUserAjax');?>&',
+            type: 'post',
+            data: 'id='+$id,
+            success: function(data){
+                if(data != 'false'){
+                    $this.parent().parent().remove();
+                    $('#ajax-load').hide();
+                }
+            }
+        });
+        return false;
+        
+        
+    });
+});
+</script>

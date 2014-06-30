@@ -1,0 +1,20 @@
+<div class="view-pro-img">
+    <img src="<?php echo BASE_URL.'/'.FRONTEND_IMAGES.'/'.$product['pro_img'];?>" />
+</div>
+<div>
+   <a href="<?php echo BASE_URL.'/'.  createUrl('frontend', 'cart', 'addCart'). "&id={$product['pro_id']}";?>" class="cart">
+        <img src="<?php echo BASE_URL.'/'.FRONTEND_IMAGES; ?>/giohang.jpg" />Đặt hàng
+    </a> 
+</div>
+<table cellspacing="0" cellpadding="0" border="1" width="580">
+    <tr>
+        <td>Tên: <?php echo $product['pro_name'];?></td>
+        <td>Giá: <?php echo $product['pro_price'];?></td>
+    </tr>
+    <tr>
+        <td colspan="2">Loại: <?php echo $product['cate_name'];?></td>
+    </tr>
+</table>
+<div class="view-pro-info">
+    <?php echo $product['pro_info'];?>
+</div>

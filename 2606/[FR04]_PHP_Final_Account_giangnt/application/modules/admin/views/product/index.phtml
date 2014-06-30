@@ -1,0 +1,36 @@
+<h1>Danh sách product</h1>
+<div id="control">
+    <a href="#">Delete Record</a>
+    <a href="<?php echo createUrl('admin', 'product','insertProduct');?>">Insert</a>
+</div>
+<table width="700" border="1" cellpadding="0" cellspacing="0" id="list" style="clear:both;">
+    <tr>
+        <td class="header">ID</td>
+        <td class="header">Tên</td>
+        <td class="header">Link ảnh</td>
+        <td class="header">Giá</td>
+        <td class="header">info</td>
+        <td class="header">Category</td>
+        <td class="header">Order</td>
+        <td class="header">Edit</td>
+        <td class="header">Delete</td>                                                                                            
+    </tr>
+    <?php
+        foreach ($listProduct as $value){
+    ?>
+    <tr>
+        <td><?php echo $value['pro_id'];?></td>
+        <td><?php echo $value['pro_name'];?></td>
+        <td><?php echo $value['pro_img'];?></td>
+        <td><?php echo $value['pro_price'];?></td>
+        <td><?php echo $value['pro_info'];?></td>
+        <td><?php echo $value['cate_name'];?></td>
+        <td><?php echo $value['pro_order'];?></td>
+        <td><a href="<?php echo createUrl('admin', 'product','editProduct');?>&id=<?php echo $value['pro_id'];?>">Edit</a></td>
+        <td><a href="<?php echo createUrl('admin', 'product','deleteProduct');?>&id=<?php echo $value['pro_id'];?>">Delete</a></td>
+    </tr>
+    <?php 
+        }
+    ?>
+
+</table>

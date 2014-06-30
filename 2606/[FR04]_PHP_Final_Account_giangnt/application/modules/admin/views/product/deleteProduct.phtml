@@ -1,0 +1,12 @@
+<h3>Xác nhận xóa category</h3>
+<div>
+    name: <?php echo $category['cate_name'];?>
+</div>
+<div>
+    <form action="" method="POST">
+        <div class="form-gr">
+            <input type="submit" name="submit" value="Xóa" class="btn" />
+            <a href="<?php echo createUrl('admin', 'category','index');?>" class="btn cancel">Hủy</a>
+        </div>
+    </form>
+</div>

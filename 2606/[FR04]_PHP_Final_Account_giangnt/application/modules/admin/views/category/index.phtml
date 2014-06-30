@@ -1,0 +1,30 @@
+<h1>Danh sách Category</h1>
+<div id="control">
+    <a href="#">Delete Record</a>
+    <a href="<?php echo createUrl('admin', 'category','insertCategory');?>">Insert</a>
+</div>
+<table width="700" border="1" cellpadding="0" cellspacing="0" id="list" style="clear:both;">
+    <tr>
+        <td class="header">ID</td>
+        <td class="header">Tên</td>
+        <td class="header">sắp xếp</td>
+        <td class="header">Trạng thái</td>
+        <td class="header">Edit</td>
+        <td class="header">Delete</td>                                                                                            
+    </tr>
+    <?php
+        foreach ($listCategory as $value){
+    ?>
+    <tr>
+        <td><?php echo $value['cate_id'];?></td>
+        <td><?php echo $value['cate_name'];?></td>
+        <td><?php echo $value['cate_order'];?></td>
+        <td><?php echo $value['cate_status'] == 1 ? 'open' : 'close';?></td>
+        <td><a href="<?php echo createUrl('admin', 'category','editCategory');?>&id=<?php echo $value['cate_id'];?>">Edit</a></td>
+        <td><a href="<?php echo createUrl('admin', 'category','deleteCategory');?>&id=<?php echo $value['cate_id'];?>">Delete</a></td>
+    </tr>
+    <?php 
+        }
+    ?>
+
+</table>
